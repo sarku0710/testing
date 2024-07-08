@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import subprocess
 import whois
 import dns.resolver
@@ -111,20 +110,6 @@ def run_misc(target):
     run_shodan(target)
     run_cyberchef()
 
-def run_help():
-    print("""
-Usage: sarku.py -s (target URL) -m (recon|scan|vuln|exploit|post|misc|all)
-       sarku.py -h  (show this help message)
-       sarku.py -i  (install required tools)
-    """)
-
-def install_tools():
-    print("[*] Installing required tools...")
-    # Add installation commands here based on your system and package manager
-    subprocess.run(["apt-get", "install", "-y", "python3-pip"])
-    subprocess.run(["pip3", "install", "shodan"])
-    # Add more installation commands as needed
-
 def run_sarku(target, mode):
     if mode == "recon" or mode == "all":
         run_recon(target)
@@ -140,12 +125,9 @@ def run_sarku(target, mode):
         run_misc(target)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3 or sys.argv[1] == "-h":
-        run_help()
-        sys.exit(0)
-    elif sys.argv[1] == "-i":
-        install_tools()
-        sys.exit(0)
+    if len(sys.argv) < 3 or sys.argv[1] not in ["-s", "-m"]:
+        print("Usage: sarku -s (target URL) -m (recon|scan|vuln|exploit|post|misc|all)")
+        sys.exit(1)
 
     target_url = sys.argv[2]
     mode = sys.argv[4] if len(sys.argv) > 3 and sys.argv[3] == "-m" else "all"
