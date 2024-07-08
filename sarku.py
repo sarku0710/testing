@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import subprocess
 import whois
 import dns.resolver
@@ -112,9 +113,9 @@ def run_misc(target):
 
 def run_help():
     print("""
-Usage: sarku -s (target URL) -m (recon|scan|vuln|exploit|post|misc|all)
-       sarku -h  (show this help message)
-       sarku -i  (install required tools)
+Usage: sarku.py -s (target URL) -m (recon|scan|vuln|exploit|post|misc|all)
+       sarku.py -h  (show this help message)
+       sarku.py -i  (install required tools)
     """)
 
 def install_tools():
