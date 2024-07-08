@@ -1,0 +1,9 @@
+./sarku.py -s example.com -m recon
+./sarku.py -s example.com -m scan
+./sarku.py -s example.com -m vuln
+./sarku.py -s example.com -m exploit
+./sarku.py -s example.com -m post
+./sarku.py -s example.com -m misc
+./sarku.py -s example.com -m all
+./sarku.py -h   # Show help message
+./sarku.py -i   # Install required tools
